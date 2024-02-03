@@ -3,13 +3,11 @@
 [![Version](https://img.shields.io/badge/Github-1.0.1-black)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel)
 ![GitHub Repo stars](https://img.shields.io/github/stars/schminkel/insomnia-plugin-run-requests-parallel)
 
-﻿If you like this plugin, [leave it a :star: on Github!](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel)
-
 You can **install it directly** from the [Insomnia Plugin Hub](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel).
 
-# Insomnia plugin: insomnia-plugin-run-requests-parallel
+# Insomnia plugin: run-requests-parallel
 
-<img src="/assets/icon.png" width="150" height="150">
+<img src="/assets/icon.png" width="200" height="200">
 
 Insomnia plugin that provides the action 'Run All Requests' on a folder that contains requests.
 
