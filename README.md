@@ -36,4 +36,4 @@ and the action "Run All Requests" will be available in the context menu of a fol
 
 ## Compatibility
 
-- Tested with Insomnia v2023.5.8 [(download here)](https://github.com/schminkel/insomnia_2023.5.8/releases/tag/v2023.5.8.1)
+- Tested with Insomnia v2023.5.8 [(download here)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/releases/tag/1.0.0)
