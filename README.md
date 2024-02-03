@@ -3,6 +3,8 @@
 [![Version](https://img.shields.io/badge/Github-1.0.1-black)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel)
 ![GitHub Repo stars](https://img.shields.io/github/stars/schminkel/insomnia-plugin-run-requests-parallel)
 
+![example event parameter](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/actions/workflows/node.js.yml/badge.svg?event=push)
+
 You can **install it directly** from the [Insomnia Plugin Hub](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel).
 
 # Insomnia plugin: Run requests in Parallel
