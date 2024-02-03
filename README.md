@@ -5,7 +5,7 @@
 
 You can **install it directly** from the [Insomnia Plugin Hub](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel).
 
-# Insomnia plugin: run-requests-parallel
+# Insomnia plugin: Run requests in Parallel
 
 <img src="/assets/icon.png" width="200" height="200">
 
