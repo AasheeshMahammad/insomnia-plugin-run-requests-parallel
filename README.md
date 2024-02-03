@@ -31,9 +31,6 @@ Go to `Application -> Preferences -> Plugins` and enter `insomnia-plugin-run-req
 
 This will download and install the plugin. After installation, you will see the plugin in the list of installed plugins
 and the action "Run All Requests" will be available in the context menu of a folder, no restart required.
+[(download here)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/releases/tag/1.0.0)
 
 ![Installation](/assets/installation.png)
-
-## Compatibility
-
-- Tested with Insomnia v2023.5.8 [(download here)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/releases/tag/1.0.0)
