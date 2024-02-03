@@ -1,9 +1,7 @@
-[![Version](https://img.shields.io/badge/npmjs-1.0.1-red)](https://www.npmjs.com/package/insomnia-plugin-run-requests-parallel)
-[![Version](https://img.shields.io/badge/Insomnia_Plugin_Hub-1.0.1-purple)](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel)
-[![Version](https://img.shields.io/badge/Github-1.0.1-black)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel)
-![GitHub Repo stars](https://img.shields.io/github/stars/schminkel/insomnia-plugin-run-requests-parallel)
-
 ![example event parameter](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/actions/workflows/node.js.yml/badge.svg?event=push)
+
+[![Version](https://img.shields.io/badge/npmjs-1.1.0-red)](https://www.npmjs.com/package/insomnia-plugin-run-requests-parallel)
+[![Version](https://img.shields.io/badge/Insomnia_Plugin_Hub-1.1.0-purple)](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel)
 
 You can **install it directly** from the [Insomnia Plugin Hub](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel).
 
