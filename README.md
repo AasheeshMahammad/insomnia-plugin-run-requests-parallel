@@ -10,9 +10,9 @@ You can **install it directly** from the [Insomnia Plugin Hub](https://insomnia.
 
 <img src="/assets/icon.png" width="200" height="200">
 
-Insomnia plugin that provides the action 'Run All Requests' on a folder that contains requests.
+Insomnia plugin that provides the action 'Run All Requests' on a folder that contains requests in a Parallel manner.
 
-This allows you to easily run all requests in a given folder, and see the results (http response code, response time, etc) in a list with a single click.
+This allows you to easily run all requests in a given folder in sequential or parallel, and see the results (http response code, response time, etc) in a list with a single click.
 
 In addition, the plugin validates the response code of each request, and displays a warning if any of the request results do not match the expected response code.
 To configure the expected response code, add the response code to the request name in brackets, e.g. `Get User [200]`, if no response code is mentioned `200` is default.
