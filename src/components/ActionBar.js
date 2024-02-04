@@ -43,6 +43,11 @@ export function ActionBar({ onSubmit, runningState, validateRun }) {
         `
       )}
     >
+      <span className={buttonStyles(true)}>
+        Default status code: <input id="statusCode" type="text" defaultValue={200} 
+        style={{width:"35px", outline:"2px solid #039103", borderRadius:"4px"}}
+        ></input>
+      </span>
       <button
         className={buttonStyles(runningState)}
         onClick={()=>handleSubmit(false)}
@@ -59,11 +64,6 @@ export function ActionBar({ onSubmit, runningState, validateRun }) {
         Run in Parallel
         <i className="fa fa-fast-forward space-left"></i>
       </button>
-      <span className={buttonStyles(true)}>
-        Default status code: <input id="statusCode" type="text" defaultValue={200} 
-        style={{width:"35px", outline:"2px solid #039103", borderRadius:"4px"}}
-        ></input>
-      </span>
       <span className="flex-1"></span>
       <RunState runningState={runningState} validateRun={validateRun} />
     </div>
