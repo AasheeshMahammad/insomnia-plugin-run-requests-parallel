@@ -1,8 +1,8 @@
 ![example event parameter](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/actions/workflows/node.js.yml/badge.svg?event=push)
 ![example event parameter](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/actions/workflows/npm-publish.yml/badge.svg)
 
-[![Version](https://img.shields.io/badge/npmjs-1.2.0-red)](https://www.npmjs.com/package/insomnia-plugin-run-requests-parallel)
-[![Version](https://img.shields.io/badge/Insomnia_Plugin_Hub-1.2.0-purple)](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel)
+[![Version](https://img.shields.io/badge/npmjs-1.3.0-red)](https://www.npmjs.com/package/insomnia-plugin-run-requests-parallel)
+[![Version](https://img.shields.io/badge/Insomnia_Plugin_Hub-1.3.0-purple)](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel)
 
 You can **install it directly** from the [Insomnia Plugin Hub](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel).
 
@@ -32,6 +32,6 @@ Go to `Application -> Preferences -> Plugins` and enter `insomnia-plugin-run-req
 
 This will download and install the plugin. After installation, you will see the plugin in the list of installed plugins
 and the action "Run All Requests" will be available in the context menu of a folder, no restart required.
-[(download here)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/releases/tag/1.0.0)
+[(download here)](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/releases/latest)
 
 ![Installation](/assets/installation.png)
