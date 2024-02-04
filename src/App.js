@@ -17,15 +17,15 @@ export default function App({ context, data }) {
     setValidateRun(true);
   };
 
-  const extractBracketsValue = (str) => {
+  const extractBracketsValue = (str, defaultStatusCode) => {
     const match = str.match(/\[([^\]]+)\]/);
-    return match ? match[1] : "200";
+    return match ? match[1] : defaultStatusCode;
   };
 
-  async function runRequests(req){
+  async function runRequests(req, defaultStatusCode){
       const response = await context.network.sendRequest(req);
       const validation =
-        extractBracketsValue(req.name) === response.statusCode.toString();
+        extractBracketsValue(req.name, defaultStatusCode) === response.statusCode.toString();
       if (!validation) {
         setValidateRun(false);
       }
@@ -44,12 +44,12 @@ export default function App({ context, data }) {
       return response;
   }
 
-  async function runAllRequests (parallel){
+  async function runAllRequests (parallel, defaultStatusCode){
     const reqs = data.requests;
     resetStates();
     let responses = [];
     for (const req of reqs) {
-      let response = runRequests(req);
+      let response = runRequests(req, defaultStatusCode);
       if(!parallel) {
         await response;
       }else{
