@@ -27,6 +27,7 @@
     "plugin",
     "plugins",
     "run",
+    "parallel",
     "requests",
     "batch"
   ],
