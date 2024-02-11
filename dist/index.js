@@ -272,7 +272,7 @@ var $dd4aa4a1572adfb0$export$2e2bcd8739ae039 = $dd4aa4a1572adfb0$export$3b11bc38
 
 
 
-function $cd06d61d892f42a6$export$a7b06bfba60a8a78({ method: method, name: name, status: status, duration: duration, validate: validate }) {
+function $cd06d61d892f42a6$export$a7b06bfba60a8a78({ requestId: requestId, method: method, name: name, status: status, duration: duration, validate: validate }) {
     let requestMethodeStyle = "";
     if (method === "POST") requestMethodeStyle = "http-method-POST";
     else if (method === "GET") requestMethodeStyle = "http-method-GET";
@@ -292,6 +292,15 @@ function $cd06d61d892f42a6$export$a7b06bfba60a8a78({ method: method, name: name,
                     paddingLeft: "0rem"
                 },
                 children: [
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("input", {
+                        type: "checkbox",
+                        style: {
+                            display: "inline-block"
+                        },
+                        name: "enabled",
+                        id: requestId,
+                        defaultChecked: "true"
+                    }),
                     /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("span", {
                         className: "group-aria-selected:bg-[--color-surprise] transition-colors top-0 left-0 absolute h-full w-[2px] bg-transparent"
                     }),
@@ -374,6 +383,8 @@ function $4e377c42f539ba61$export$2e2bcd8739ae039({ context: context, data: data
         resetStates();
         let responses = [];
         for (const req of reqs){
+            let element = document.getElementById(req._id);
+            if (element === null || !element.checked) continue;
             let response = runRequests(req, defaultStatusCode);
             if (!parallel) await response;
             else responses.push(response);
@@ -394,6 +405,7 @@ function $4e377c42f539ba61$export$2e2bcd8739ae039({ context: context, data: data
                 },
                 children: /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("ul", {
                     children: data.requests.map((r)=>/*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)((0, $cd06d61d892f42a6$export$a7b06bfba60a8a78), {
+                            requestId: r._id,
                             method: r.method,
                             name: r.name,
                             onClick: (_)=>handleRequest(r._id),

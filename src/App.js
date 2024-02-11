@@ -49,6 +49,10 @@ export default function App({ context, data }) {
     resetStates();
     let responses = [];
     for (const req of reqs) {
+      let element = document.getElementById(req._id);
+      if(element === null || !element.checked){
+        continue;
+      }
       let response = runRequests(req, defaultStatusCode);
       if(!parallel) {
         await response;
@@ -72,6 +76,7 @@ export default function App({ context, data }) {
           {data.requests.map((r) => (
             <ListItem
               key={r._id}
+              requestId={r._id}
               method={r.method}
               name={r.name}
               onClick={(_) => handleRequest(r._id)}

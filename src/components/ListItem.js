@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 import Duration from "./Duration";
 import Validation from "./Validation";
 
-export function ListItem({ method, name, status, duration, validate }) {
+export function ListItem({ requestId, method, name, status, duration, validate }) {
   let requestMethodeStyle = "";
   if (method === "POST") {
     requestMethodeStyle = "http-method-POST";
@@ -21,6 +21,8 @@ export function ListItem({ method, name, status, duration, validate }) {
           className="flex select-none outline-none group-aria-selected:text-[--color-font] relative group-hover:bg-[--hl-xs] group-focus:bg-[--hl-sm] transition-colors gap-2 px-0 items-center h-[--line-height-xs] w-full overflow-hidden text-[--hl]"
           style={{ paddingLeft: "0rem" }}
         >
+          <input type='checkbox' style={{display:'inline-block'}} 
+          name='enabled' id={requestId} defaultChecked='true'></input>
           <span className="group-aria-selected:bg-[--color-surprise] transition-colors top-0 left-0 absolute h-full w-[2px] bg-transparent"></span>
           <button
             type="button"
