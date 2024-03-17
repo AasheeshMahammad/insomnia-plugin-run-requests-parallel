@@ -122,65 +122,102 @@ const $2cbe89b645e35827$var$buttonStyles = (disabled)=>(0, $6uPpa$emotioncss.css
     }
   `}
 `;
-function $2cbe89b645e35827$export$e213cebad6250b4a({ onSubmit: onSubmit, runningState: runningState, validateRun: validateRun }) {
+function $2cbe89b645e35827$export$e213cebad6250b4a({ onSubmit: onSubmit, runningState: runningState, validateRun: validateRun, setLoopingValue: setLoopingValue }) {
     const handleSubmit = function(parallel = false) {
-        let ele = document.getElementById("statusCode");
-        let statusCode = ele.value;
+        let statusCode = "200";
+        statusCode = document.getElementById("statusCode").value;
         if (statusCode == null || statusCode == undefined || statusCode == "") statusCode = "200";
         onSubmit(parallel, statusCode);
     };
-    return /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("div", {
-        className: (0, $6uPpa$clsx.clsx)("flex flex-row", (0, $6uPpa$emotioncss.css)`
-          margin-bottom: 12px;
-          align-items: baseline;
-          margin-right: 2px;
-          gap: 4px
-        `),
+    let order = (0, $6uPpa$clsx.clsx)("flex flex-row", (0, $6uPpa$emotioncss.css)`
+      margin-bottom: 12px;
+      align-items: baseline;
+      margin-right: 2px;
+      gap: 4px
+    `);
+    function changeLoopingValue(event) {
+        setLoopingValue((preVal)=>{
+            let newVal = Number(event.target.value);
+            if (Number.isInteger(newVal)) {
+                if (newVal <= 0) newVal = 1;
+            }
+            return newVal;
+        });
+    }
+    return /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)((0, $6uPpa$reactjsxruntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("span", {
-                className: $2cbe89b645e35827$var$buttonStyles(true),
+            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("div", {
+                className: order,
                 children: [
-                    "Default status code: ",
-                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("input", {
-                        id: "statusCode",
-                        type: "text",
-                        defaultValue: 200,
-                        style: {
-                            width: "35px",
-                            outline: "2px solid #039103",
-                            borderRadius: "4px"
-                        }
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("span", {
+                        className: $2cbe89b645e35827$var$buttonStyles(true),
+                        children: [
+                            "Default status code: ",
+                            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("input", {
+                                id: "statusCode",
+                                type: "text",
+                                defaultValue: 200,
+                                style: {
+                                    width: "30px",
+                                    outline: "2px solid #039103",
+                                    borderRadius: "4px"
+                                }
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("span", {
+                        className: $2cbe89b645e35827$var$buttonStyles(true),
+                        children: [
+                            "Loop for: ",
+                            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("input", {
+                                id: "loopingValue",
+                                type: "text",
+                                defaultValue: 1,
+                                onChange: changeLoopingValue,
+                                style: {
+                                    width: "30px",
+                                    outline: "2px solid #039103",
+                                    borderRadius: "4px"
+                                }
+                            }),
+                            " times"
+                        ]
                     })
                 ]
             }),
-            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("button", {
-                className: $2cbe89b645e35827$var$buttonStyles(runningState),
-                onClick: ()=>handleSubmit(false),
-                disabled: runningState,
+            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("div", {
+                className: order,
                 children: [
-                    "Run",
-                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("i", {
-                        className: "fa fa-play space-left"
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("button", {
+                        className: $2cbe89b645e35827$var$buttonStyles(runningState),
+                        onClick: ()=>handleSubmit(false),
+                        disabled: runningState,
+                        children: [
+                            "Run",
+                            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("i", {
+                                className: "fa fa-play space-left"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("button", {
+                        className: $2cbe89b645e35827$var$buttonStyles(runningState),
+                        onClick: ()=>handleSubmit(true),
+                        disabled: runningState,
+                        children: [
+                            "Run in Parallel",
+                            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("i", {
+                                className: "fa fa-fast-forward space-left"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("span", {
+                        className: "flex-1"
+                    }),
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)((0, $e481a9ad7af868fb$export$2e2bcd8739ae039), {
+                        runningState: runningState,
+                        validateRun: validateRun
                     })
                 ]
-            }),
-            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("button", {
-                className: $2cbe89b645e35827$var$buttonStyles(runningState),
-                onClick: ()=>handleSubmit(true),
-                disabled: runningState,
-                children: [
-                    "Run in Parallel",
-                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("i", {
-                        className: "fa fa-fast-forward space-left"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("span", {
-                className: "flex-1"
-            }),
-            /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)((0, $e481a9ad7af868fb$export$2e2bcd8739ae039), {
-                runningState: runningState,
-                validateRun: validateRun
             })
         ]
     });
@@ -272,7 +309,7 @@ var $dd4aa4a1572adfb0$export$2e2bcd8739ae039 = $dd4aa4a1572adfb0$export$3b11bc38
 
 
 
-function $cd06d61d892f42a6$export$a7b06bfba60a8a78({ requestId: requestId, method: method, name: name, status: status, duration: duration, validate: validate }) {
+function $cd06d61d892f42a6$export$a7b06bfba60a8a78({ requestId: requestId, method: method, name: name, status: status, duration: duration, validate: validate, finishedCount: finishedCount, loopingValue: loopingValue }) {
     let requestMethodeStyle = "";
     if (method === "POST") requestMethodeStyle = "http-method-POST";
     else if (method === "GET") requestMethodeStyle = "http-method-GET";
@@ -318,9 +355,13 @@ function $cd06d61d892f42a6$export$a7b06bfba60a8a78({ requestId: requestId, metho
                         className: (0, $6uPpa$clsx.clsx)("w-10 flex-shrink-0 flex text-[0.65rem] rounded-sm border border-solid border-[--hl-sm] items-center justify-center", requestMethodeStyle),
                         children: method
                     }),
-                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("span", {
+                    /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)("span", {
                         className: "truncate",
-                        children: name
+                        children: [
+                            name,
+                            " ",
+                            `(${finishedCount}/${loopingValue})`
+                        ]
                     }),
                     /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("span", {
                         className: "flex-1"
@@ -349,12 +390,15 @@ function $4e377c42f539ba61$export$2e2bcd8739ae039({ context: context, data: data
     const [validateRequest, setValidateRequest] = (0, $6uPpa$react.useState)({});
     const [runningState, setRunningState] = (0, $6uPpa$react.useState)(false);
     const [validateRun, setValidateRun] = (0, $6uPpa$react.useState)(undefined);
+    const [loopingValue, setLoopingValue] = (0, $6uPpa$react.useState)(1);
+    const [requestsMap, setRequestsMap] = (0, $6uPpa$react.useState)(new Map());
     const resetStates = ()=>{
         setRunningState(true);
         setDurationRequest({});
         setValidateRequest({});
         setStatusRequest({});
         setValidateRun(true);
+        setRequestsMap(new Map());
     };
     const extractBracketsValue = (str, defaultStatusCode)=>{
         const match = str.match(/\[([^\]]+)\]/);
@@ -376,20 +420,36 @@ function $4e377c42f539ba61$export$2e2bcd8739ae039({ context: context, data: data
                 ...validate,
                 [req._id]: validation
             }));
+        updateRequestsMap([
+            req._id
+        ]);
         return response;
+    }
+    async function updateRequestsMap(requestIds) {
+        setRequestsMap((prevMap)=>{
+            let newMap = new Map(prevMap);
+            requestIds.forEach((requestId)=>{
+                newMap.set(requestId, newMap.get(requestId) != undefined ? newMap.get(requestId) + 1 : 1);
+            });
+            return newMap;
+        });
     }
     async function runAllRequests(parallel, defaultStatusCode) {
         const reqs = data.requests;
         resetStates();
-        let responses = [];
-        for (const req of reqs){
-            let element = document.getElementById(req._id);
-            if (element === null || !element.checked) continue;
-            let response = runRequests(req, defaultStatusCode);
-            if (!parallel) await response;
-            else responses.push(response);
+        const poolSize = data.requests.length;
+        let loop = loopingValue;
+        while(loop-- > 0){
+            let promiseList = [];
+            for (const req of reqs){
+                let element = document.getElementById(req._id);
+                if (element === null || !element.checked) continue;
+                let response = runRequests(req, defaultStatusCode);
+                if (!parallel) await response;
+                else promiseList.push(response);
+            }
+            await Promise.all(promiseList);
         }
-        await Promise.all(responses);
         setRunningState(false);
     }
     return /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsxs)((0, $6uPpa$reactjsxruntime.Fragment), {
@@ -397,7 +457,8 @@ function $4e377c42f539ba61$export$2e2bcd8739ae039({ context: context, data: data
             /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)((0, $2cbe89b645e35827$export$e213cebad6250b4a), {
                 onSubmit: runAllRequests,
                 runningState: runningState,
-                validateRun: validateRun
+                validateRun: validateRun,
+                setLoopingValue: setLoopingValue
             }),
             /*#__PURE__*/ (0, $6uPpa$reactjsxruntime.jsx)("div", {
                 style: {
@@ -411,7 +472,9 @@ function $4e377c42f539ba61$export$2e2bcd8739ae039({ context: context, data: data
                             onClick: (_)=>handleRequest(r._id),
                             status: statusRequest[r._id],
                             duration: durationRequest[r._id],
-                            validate: validateRequest[r._id]
+                            validate: validateRequest[r._id],
+                            finishedCount: requestsMap.get(r._id) != undefined ? requestsMap.get(r._id) : 0,
+                            loopingValue: loopingValue
                         }, r._id))
                 })
             })

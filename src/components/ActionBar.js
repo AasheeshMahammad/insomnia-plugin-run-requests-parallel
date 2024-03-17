@@ -20,34 +20,53 @@ const buttonStyles = (disabled) => css`
   `}
 `;
 
-export function ActionBar({ onSubmit, runningState, validateRun }) {
+
+export function ActionBar({ onSubmit, runningState, validateRun, setLoopingValue }) {
   const handleSubmit = function(parallel = false){
-    let ele = document.getElementById('statusCode')
-    let statusCode = ele.value
+    let statusCode = "200";
+    statusCode = document.getElementById('statusCode').value;
+
     if(statusCode == null || statusCode == undefined || statusCode == ''){
       statusCode = "200"
     }
     onSubmit(parallel, statusCode);
   }
+  let order = clsx(
+    "flex flex-row",
+    css`
+      margin-bottom: 12px;
+      align-items: baseline;
+      margin-right: 2px;
+      gap: 4px
+    `
+  )
+  function changeLoopingValue(event){
+    setLoopingValue((preVal)=>{
+      let newVal = Number(event.target.value);
+      if(Number.isInteger(newVal)){
+        if(newVal <= 0) newVal = 1
+      }
+      return newVal
+    })
+    
+  }
 
 
   return (
-    <div
-      className={clsx(
-        "flex flex-row",
-        css`
-          margin-bottom: 12px;
-          align-items: baseline;
-          margin-right: 2px;
-          gap: 4px
-        `
-      )}
-    >
+    <>
+    <div className={order}>
       <span className={buttonStyles(true)}>
         Default status code: <input id="statusCode" type="text" defaultValue={200} 
-        style={{width:"35px", outline:"2px solid #039103", borderRadius:"4px"}}
+        style={{width:"30px", outline:"2px solid #039103", borderRadius:"4px"}}
         ></input>
       </span>
+      <span className={buttonStyles(true)}>
+        Loop for: <input id="loopingValue" type="text" defaultValue={1}  onChange={changeLoopingValue}
+        style={{width:"30px", outline:"2px solid #039103", borderRadius:"4px"}}
+        ></input> times
+      </span>
+      </div>
+      <div className={order}>
       <button
         className={buttonStyles(runningState)}
         onClick={()=>handleSubmit(false)}
@@ -66,7 +85,8 @@ export function ActionBar({ onSubmit, runningState, validateRun }) {
       </button>
       <span className="flex-1"></span>
       <RunState runningState={runningState} validateRun={validateRun} />
-    </div>
+      </div>
+      </>
   );
 }
 

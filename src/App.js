@@ -8,6 +8,8 @@ export default function App({ context, data }) {
   const [validateRequest, setValidateRequest] = useState({});
   const [runningState, setRunningState] = useState(false);
   const [validateRun, setValidateRun] = useState(undefined);
+  const [loopingValue, setLoopingValue] = useState(1)
+  const [requestsMap, setRequestsMap] = useState(new Map());
 
   const resetStates = () => {
     setRunningState(true);
@@ -15,6 +17,7 @@ export default function App({ context, data }) {
     setValidateRequest({});
     setStatusRequest({});
     setValidateRun(true);
+    setRequestsMap(new Map())
   };
 
   const extractBracketsValue = (str, defaultStatusCode) => {
@@ -41,26 +44,42 @@ export default function App({ context, data }) {
         ...validate,
         [req._id]: validation,
       }));
+      updateRequestsMap([req._id])
       return response;
+  }
+
+  async function updateRequestsMap(requestIds){
+    setRequestsMap((prevMap)=>{
+      let newMap = new Map(prevMap)
+      requestIds.forEach(requestId=>{
+        newMap.set(requestId, newMap.get(requestId)!=undefined? newMap.get(requestId)+1 : 1)
+
+      })
+      return newMap;
+    })
   }
 
   async function runAllRequests (parallel, defaultStatusCode){
     const reqs = data.requests;
     resetStates();
-    let responses = [];
-    for (const req of reqs) {
-      let element = document.getElementById(req._id);
-      if(element === null || !element.checked){
-        continue;
+    const poolSize = data.requests.length;
+    let loop = loopingValue;
+    while(loop-- > 0){
+      let promiseList = [];
+      for (const req of reqs) {
+        let element = document.getElementById(req._id);
+        if(element === null || !element.checked){
+          continue;
+        }
+        let response = runRequests(req, defaultStatusCode);
+        if(!parallel) {
+          await response;
+        }else{
+          promiseList.push(response);
+        }
       }
-      let response = runRequests(req, defaultStatusCode);
-      if(!parallel) {
-        await response;
-      }else{
-        responses.push(response);
-      }
+      await Promise.all(promiseList)
     }
-    await Promise.all(responses);
     setRunningState(false);
   };
 
@@ -70,6 +89,7 @@ export default function App({ context, data }) {
         onSubmit={runAllRequests}
         runningState={runningState}
         validateRun={validateRun}
+        setLoopingValue={setLoopingValue}
       />
       <div style={{ marginTop: "5px" }}>
         <ul>
@@ -83,6 +103,8 @@ export default function App({ context, data }) {
               status={statusRequest[r._id]}
               duration={durationRequest[r._id]}
               validate={validateRequest[r._id]}
+              finishedCount={requestsMap.get(r._id)!=undefined? requestsMap.get(r._id) : 0}
+              loopingValue={loopingValue}
             />
           ))}
         </ul>

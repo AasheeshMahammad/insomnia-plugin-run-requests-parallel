@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 import Duration from "./Duration";
 import Validation from "./Validation";
 
-export function ListItem({ requestId, method, name, status, duration, validate }) {
+export function ListItem({ requestId, method, name, status, duration, validate, finishedCount, loopingValue }) {
   let requestMethodeStyle = "";
   if (method === "POST") {
     requestMethodeStyle = "http-method-POST";
@@ -40,7 +40,7 @@ export function ListItem({ requestId, method, name, status, duration, validate }
           >
             {method}
           </span>
-          <span className="truncate">{name}</span>
+          <span className="truncate">{name} {`(${finishedCount}/${loopingValue})`}</span>
           <span className="flex-1"></span>
           <Duration>{duration}</Duration>
           <Status>{status}</Status>
