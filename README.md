@@ -1,5 +1,6 @@
 ![example event parameter](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/actions/workflows/node.js.yml/badge.svg?event=push)
 ![example event parameter](https://github.com/AasheeshMahammad/insomnia-plugin-run-requests-parallel/actions/workflows/npm-publish.yml/badge.svg)
+![npm](https://img.shields.io/npm/d18m/insomnia-plugin-run-requests-parallel.svg)
 
 [![Version](https://img.shields.io/badge/npmjs-2.0.0-red)](https://www.npmjs.com/package/insomnia-plugin-run-requests-parallel)
 [![Version](https://img.shields.io/badge/Insomnia_Plugin_Hub-2.0.0-purple)](https://insomnia.rest/plugins/insomnia-plugin-run-requests-parallel)
